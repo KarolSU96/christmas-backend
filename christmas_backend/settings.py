@@ -14,10 +14,17 @@ from pathlib import Path
 import os
 
 if os.path.exists('env.py'):
+    print("env.py found and imported")
     import env
+else:
+    print("env.py not found")
+
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.getenv('CLOUDINARY_URL')
 }
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,7 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
-    'christmas_app',
+    'profiles',
 ]
 
 MIDDLEWARE = [
