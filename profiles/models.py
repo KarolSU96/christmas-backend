@@ -9,8 +9,8 @@ class Profile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100, blank=True)
-    image = CloudinaryField(
-        'image',
+    image = models.ImageField(
+        upload_to='images/',
         default='default_profile_d7stiw'
     )
 
@@ -23,7 +23,7 @@ class Profile(models.Model):
 
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(owner=instance)
+        Profile.objects.create(owner=instance,name=f"{instance.username}'s profile")
 
 
 post_save.connect(create_profile, sender=User)
