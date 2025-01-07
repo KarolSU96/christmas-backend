@@ -26,4 +26,5 @@ urlpatterns = [
     path('api_auth/', include('rest_framework.urls')),
     path('', include('profiles.urls')),
     path('', include('gifts.urls')),
+    path('', include('recipes.urls')),
 ]

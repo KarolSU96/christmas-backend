@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'profiles',
     'gifts',
+    'recipes',
 ]
 
 MIDDLEWARE = [
